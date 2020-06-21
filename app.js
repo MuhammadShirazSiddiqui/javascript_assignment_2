@@ -93,14 +93,15 @@
 
 
 
-// Chapter # 21-25 Question # 13                                            //not done
+// Chapter # 21-25 Question # 13                                            
 // var username = prompt('Enter username:');
-//     if(username === '@' || username === '.' || username === ','  || username === '!'  ){
-//         alert(`Please enter a valid username`);
-//     }
-//     else{
-//         document.write("Username: "+username);
-//     }
+// var special_character = /[!%&'()*+./;<=>?\\,/:#@\t\r\n"\[\]_\u007B-\u00BF-]/;    
+// if(username.toLowerCase().match(new RegExp(special_character, "g"))){
+//     alert(`Please enter a valid username`);
+// }
+// else{
+//     document.write("Username: "+username);
+// }
 
 
 
@@ -146,14 +147,19 @@
 
 
 
-// Chapter # 21-25 Question # 16                                        //not done with using split method
+// Chapter # 21-25 Question # 16                                        
 // var name = "university of Karachi";
 // for(var i = 0; i < name.length; i++)
 // {
 //     document.write(`${name.charAt(i)} <br>`);
 // }
 // var result = name.split(" ");
-
+// ========OR========
+// var split = name.split('');
+// for(var i = 0; i < split.length; i++)
+// {
+//     document.write(`${split[i]} <br>`)
+// }
 
 
 // Chapter # 21-25 Question # 17
@@ -317,32 +323,47 @@
 
 
 
-// Chapter # 31-34 Question # 8                         // not done
+// Chapter # 31-34 Question # 8                       
+// const date = new Date('12/31/2020');
+// document.write(`Later Date: ${date}`); 
+
+
+
+// Chapter # 31-34 Question # 9                         
+// var date1 = new Date('6/18/2015');
+// var date2 = new Date();
+// const diff_time = Math.abs(date2 - date1);
+// const diff_days = Math.ceil(diff_time / ( 1000 * 60 * 60 * 24));
+// document.write(`${diff_days} days have passed since the 1st Ramadan, 2015`);  
+
+
+
+// Chapter # 31-34 Question # 10       
+// const date1 = new Date('12/5/2015');
+// document.write(`On reference date ${date1} <br>`) 
+// const date2 = new Date('1/1/2015');
+// const diffTime = Math.abs(date2 - date1);
+// const diffDays = Math.ceil(diffTime / ( 1000 * 60 * 60 * 24));
+// var seconds = diffDays * 24 * 60 * 60; 
+// document.write(`${seconds} seconds had passed since the beginning of 2015`);
+
+
+
+// Chapter # 31-34 Question # 11                      
 // var date = new Date();
-// var year = date.setMonth(11,30);
-// document.write(`Later Date: ${year}`); 
+// document.write(`Current Date: ${date} <br>`);
+// var hour = date.getHours()-1;
+// date.setHours(hour);
+// document.write(`1 hour ago, it was ${date}`);
 
 
 
-// Chapter # 31-34 Question # 9                         // not done
+// Chapter # 31-34 Question # 12                     
 // var date = new Date();
-// var month_names = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]; 
-// date = date.setFullYear()
-// var last_ramadan = date.setMonth(6, 18);
-// var current_ramadan = date.setMonth()
-// document.write(`${date}`);  
-
-
-
-// Chapter # 31-34 Question # 10                         // not done
-
-
-
-// Chapter # 31-34 Question # 11                         // not done
-
-
-
-// Chapter # 31-34 Question # 12                         // not done
+// document.write(`Current date: ${date} <br>`);
+// var year = date.getFullYear()-100;
+// date.setFullYear(year);
+// document.write(`100 years back, it was ${date}`);
 
 
 
@@ -484,3 +505,75 @@
 //     return area;
 // }
 // document.write(Area(width, height));
+
+
+
+// Chapter # 35-38 Question # 10
+// var string = prompt("Enter text to check if it's Palindrome")
+// function isPalindrome(string){
+//     var normalized = string.toLowerCase().match(/[a-z]/gi).reverse();
+//     return normalized.join('') === normalized.reverse().join('');
+// }
+// if(isPalindrome(string)){
+//     document.write(`"${string}" is Palindrome`);
+// }else{
+//     document.write(`"${string}" is not Palindrome`);
+// }
+
+
+// Chapter # 35-38 Question # 11
+// var text = "the quick brown fox jumps over the lazy dog.";
+// function capitalize(text) {  
+//     var words = text.split(' ');  
+//     var CapitalizedWords = [];  
+//     words.forEach(element => {  
+//         CapitalizedWords.push(element[0].toUpperCase() + element.slice(1, element.length));  
+//     });  
+//     return CapitalizedWords.join(' ');  
+// }  
+// document.write(capitalize(text));
+
+
+
+// Chapter # 35-38 Question # 12
+// var string = prompt("Enter the text to find the longest word");
+// function findLongestWord(string) {
+//     var str = string.split(" ");
+//     var longest = 0;
+//     var word = null;
+//     for (var i = 0; i < str.length; i++) {
+//         if (longest < str[i].length) {
+//             longest = str[i].length;
+//             word = str[i];
+//         }
+//     }
+//     return word;
+// }
+// document.write(`String: ${string} <br>`);
+// document.write(`Longest Word: ${findLongestWord(string)}`);
+
+
+
+// Chapter # 35-38 Question # 13
+// var string = prompt("Enter the string:")
+// var char = prompt("Type a 'Letter' you look for:")
+// function find_character(string, char){
+//     var count = ((string.toLowerCase().match(new RegExp(char, "g")) || []).length);
+//     return count;
+// }
+// document.write(find_character(string, char));
+
+
+
+// Chapter # 35-38 Question # 14
+// var radius = parseFloat(prompt("Enter the radius"));
+// function calcCircumference(radius){
+//     result = 2 * 3.14 * radius;
+//     return result;  
+// }
+// function calcArea(radius){
+//     result = 3.14 * (radius*radius); 
+//     return result;
+// }
+// document.write(`Circumference of a circle: ${calcCircumference(radius)} <br>`);
+// document.write(`Area of a circle: ${calcArea(radius)}`);
